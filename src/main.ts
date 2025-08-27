@@ -34,7 +34,7 @@ async function runJob(): Promise<void> {
   const category = getRandomCategory();
   const post = await generatePost(category);
   console.log("Generated Post:\n", post);  
-  // await postToLinkedIn(post);
+  await postToLinkedIn(post);
 }
 
 cron.schedule("0 9,17 * * *", () => {

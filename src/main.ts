@@ -7,7 +7,6 @@ dotenv.config();
 
 console.log("🚀 LinkedIn Post Bot started successfully!");
 
-// Broader technology categories for more dynamic topic generation
 const techCategories = [
   "Backend Development",
   "Frontend Development", 

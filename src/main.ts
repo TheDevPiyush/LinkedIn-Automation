@@ -7,11 +7,34 @@ dotenv.config();
 
 console.log("🚀 LinkedIn Post Bot started successfully!");
 
+// Broader technology categories for more dynamic topic generation
+const techCategories = [
+  "Backend Development",
+  "Frontend Development", 
+  "DevOps & Infrastructure",
+  "Blockchain & Web3",
+  "Mobile Development",
+  "Data Science & AI",
+  "Cybersecurity",
+  "Cloud Computing",
+  "System Design",
+  "Database Design",
+  "API Development",
+  "Testing & Quality Assurance",
+  "Performance Optimization",
+  "Microservices Architecture",
+  "Machine Learning Engineering"
+];
+
+function getRandomCategory(): string {
+  return techCategories[Math.floor(Math.random() * techCategories.length)];
+}
+
 async function runJob(): Promise<void> {
-  const topic = "how AI is transforming the future of coding";
-  const post = await generatePost(topic);
-  console.log("Generated Post:\n", post);
-  await postToLinkedIn(post);
+  const category = getRandomCategory();
+  const post = await generatePost(category);
+  console.log("Generated Post:\n", post);  
+  // await postToLinkedIn(post);
 }
 
 cron.schedule("0 9,17 * * *", () => {

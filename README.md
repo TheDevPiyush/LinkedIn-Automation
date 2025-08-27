@@ -41,9 +41,9 @@ LINKEDIN_CLIENT_SECRET="CLIENT SECRET OF A LINKED_IN DASHBOARD APP"
 LINKEDIN_ACCESS_TOKEN="YOUR LINKED_IN ACCOUNT ACCESS TOKEN"
 LINKEDIN_PERSON_URN="YOUR LINKED_IN ACCOUNT URN ID"
 ```
-- CLIENT_ID & CLIENT_SECRET    - can be get when you create an App in linked developers page
-- ACCESS_TOKEN                 - Generate it from your App's Auth settings page for your account
-- PERSON_URN                   - After generating access token hit a req on linked_in user-info API.
+- `CLIENT_ID & CLIENT_SECRET`    - can be get when you create an App in linked developers page
+- `ACCESS_TOKEN`                 - Generate it from your App's Auth settings page for your account
+- `PERSON_URN`                   - After generating access token hit a req on linked_in user-info API.
 
 ## Installation
 

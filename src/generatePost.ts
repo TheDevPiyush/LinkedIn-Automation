@@ -1,11 +1,11 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import dotenv from "dotenv";
 
-dotenv.config();
+dotenv.config();  
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY as string);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
+const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
 export async function generatePost(category: string = "Software Development"): Promise<string> {
   const topicPrompt = `Generate an intermediate-level (not too easy, not too hard) technical topic within the "${category}" domain that would be interesting for mid-level developers to learn about. 

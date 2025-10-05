@@ -9,7 +9,7 @@ console.log("🚀 LinkedIn Post Bot started successfully!");
 
 const techCategories = [
   "Backend Development",
-  "Frontend Development", 
+  "Frontend Development",
   "DevOps & Infrastructure",
   "Blockchain & Web3",
   "Mobile Development",
@@ -32,13 +32,15 @@ function getRandomCategory(): string {
 async function runJob(): Promise<void> {
   const category = getRandomCategory();
   const post = await generatePost(category);
-  console.log("Generated Post:\n", post);  
+  console.log("Generated Post:\n", post);
   await postToLinkedIn(post);
 }
 
-cron.schedule("0 9,17 * * *", () => {
-  console.log("⏰ Running LinkedIn poster job...");
+cron.schedule("0 13 * * *", () => {
+  console.log("⏰ Running LinkedIn poster job (1 PM IST)...");
   runJob();
+}, {
+  timezone: "Asia/Kolkata"
 });
 
-runJob();
+// runJob();

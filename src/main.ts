@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import cron from "node-cron";
 import { generatePost } from "./generatePost.js";
 import { postToLinkedIn } from "./postToLinkedIn.js";
+import { generatePostImage } from "./generatePostImage.js";
 
 dotenv.config();
 
@@ -31,9 +32,18 @@ function getRandomCategory(): string {
 
 async function runJob(): Promise<void> {
   const category = getRandomCategory();
-  const post = await generatePost(category);
-  console.log("Generated Post:\n", post);
-  await postToLinkedIn(post);
+  const { topic, text } = await generatePost(category);
+  console.log("Generated Topic:\n", topic);
+  console.log("Generated Post:\n", text);
+
+  let imageBuffer: Buffer | null = null;
+  try {
+    imageBuffer = await generatePostImage(`${topic} (abstract illustration style)`);
+  } catch (err: any) {
+    console.warn("Image generation failed:", err?.message || String(err));
+  }
+
+  await postToLinkedIn(text, imageBuffer ? { buffer: imageBuffer, altText: topic } : undefined);
 }
 
 cron.schedule("0 13 * * *", () => {
@@ -43,4 +53,4 @@ cron.schedule("0 13 * * *", () => {
   timezone: "Asia/Kolkata"
 });
 
-// runJob();
+runJob();

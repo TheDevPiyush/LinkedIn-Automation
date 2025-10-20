@@ -1,13 +1,18 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import dotenv from "dotenv";
 
-dotenv.config();  
+dotenv.config();
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY as string);
 const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
-export async function generatePost(category: string = "Software Development"): Promise<string> {
+export interface GeneratedPostResult {
+  topic: string;
+  text: string;
+}
+
+export async function generatePost(category: string = "Software Development"): Promise<GeneratedPostResult> {
   const topicPrompt = `Generate an intermediate-level (not too easy, not too hard) technical topic within the "${category}" domain that would be interesting for mid-level developers to learn about. 
 
 Requirements:
@@ -26,7 +31,6 @@ Examples of good intermediate topics:
   const topicResult = await model.generateContent(topicPrompt);
   const generatedTopic = topicResult.response.text().trim();
 
-  // Now create the engaging post about the generated topic
   const postPrompt = `Create an engaging LinkedIn post about "${generatedTopic}" that sounds like it's written by a real person, not AI. 
 
 Requirements:
@@ -51,5 +55,5 @@ CRITICAL: DO NOT include:
 The post should be completely self-contained with your own insights and experiences. Make it sound like someone who's genuinely excited to share insights and wants to start a conversation!`;
 
   const result = await model.generateContent(postPrompt);
-  return result.response.text();
+  return { topic: generatedTopic, text: result.response.text() };
 }

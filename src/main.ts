@@ -6,7 +6,7 @@ import { generatePostImage } from "./generatePostImage.js";
 
 dotenv.config();
 
-console.log("🚀 LinkedIn Post Bot started successfully!");
+console.log("🚀 LinkedIn Post Bot started successfully! - Text + Image Posts");
 
 const techCategories = [
   "Backend Development",
@@ -53,4 +53,4 @@ cron.schedule("0 13 * * *", () => {
   timezone: "Asia/Kolkata"
 });
 
-runJob();
+// runJob();

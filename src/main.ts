@@ -51,4 +51,4 @@ cron.schedule("0 13 * * *", () => {
   timezone: "Asia/Kolkata"
 });
 
-runJob();
+// runJob();

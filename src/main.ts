@@ -43,7 +43,7 @@ async function runJob(): Promise<void> {
     console.warn("Image generation failed:", err?.message || String(err));
   }
 
-  // await postToLinkedIn(text, imageBuffer ? { buffer: imageBuffer, altText: topic } : undefined);
+  await postToLinkedIn(text, imageBuffer ? { buffer: imageBuffer, altText: topic } : undefined);
 }
 
 cron.schedule("0 13 * * *", () => {

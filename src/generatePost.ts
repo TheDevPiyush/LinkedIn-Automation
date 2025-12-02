@@ -25,7 +25,6 @@ Requirements:
 Examples of good intermediate topics:
 - "Implementing JWT authentication with refresh tokens"
 - "Designing a scalable caching strategy for microservices"
-- "Building responsive layouts with CSS Grid and Flexbox"
 - "Optimizing database queries for high-traffic applications"`;
 
   const topicResult = await model.generateContent(topicPrompt);
@@ -36,11 +35,11 @@ Examples of good intermediate topics:
 Requirements:
 - Use a conversational, talkative tone like you're chatting with a friend
 - Include relevant emojis throughout the post
-- Use bullet points or numbered lists for key insights
+- Use bullet points or numbered lists for key insights & keep proper spacing and line breaks
 - Make it feel personal and authentic
 - Include a hook at the beginning to grab attention
 - End with a question or call-to-action to encourage engagement
-- Keep it between 800-1200 characters
+- Keep it between 800-1200 characters, with proper spacing and line breaks
 - Use casual language, contractions, and real examples
 - Avoid corporate jargon or overly formal language
 - Focus on practical insights and real-world applications

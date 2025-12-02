@@ -50,6 +50,7 @@ CRITICAL: DO NOT include:
 - Citations or references
 - "Here are some resources" or similar filler content
 - Hashtags (LinkedIn doesn't use them effectively)
+- Avoid any starting reply like for example - ' Okay, here's my attempt at a super-personal, conversational LinkedIn post about Terraform and AWS: ---' or anything like that
 
 The post should be completely self-contained with your own insights and experiences. Make it sound like someone who's genuinely excited to share insights and wants to start a conversation!`;
 

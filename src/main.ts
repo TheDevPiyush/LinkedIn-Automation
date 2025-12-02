@@ -10,20 +10,18 @@ console.log("🚀 LinkedIn Post Bot started successfully! - Text + Image Posts")
 
 const techCategories = [
   "Backend Development",
-  "Frontend Development",
   "DevOps & Infrastructure",
-  "Blockchain & Web3",
-  "Mobile Development",
   "Data Science & AI",
-  "Cybersecurity",
-  "Cloud Computing",
-  "System Design",
+  "Machine Learning Engineering",
   "Database Design",
   "API Development",
+  "Cloud Computing",
+  "System Design",
+  "Mobile Development",
   "Testing & Quality Assurance",
+  "Frontend Development",
   "Performance Optimization",
   "Microservices Architecture",
-  "Machine Learning Engineering"
 ];
 
 function getRandomCategory(): string {
